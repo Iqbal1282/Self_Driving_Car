@@ -6,11 +6,8 @@ def main():
     car = Car()
     vision = Vision 
 
-
     # States 
     STATE = "CRUISE"
-
-
     stop_timer = 0 
 
     try: 
@@ -21,9 +18,7 @@ def main():
             lane_angle = vision.detect_lanes(frame) 
             light_state = vision.detect_traffic_light(frame) 
             obstacle = vision.detect_obstacle(frame) 
-
-
-
+            
             # debug visualization 
             #vis = vision.visualize(frame, lane_angle, light_state, obstacle)
 
@@ -60,4 +55,3 @@ def main():
 
 if __name__ == "__main__": 
     main()
-    
