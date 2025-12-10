@@ -1,7 +1,17 @@
 # Installation 
 On Rasberry Pi OS (64 bit)
-```sudo apt update  && sudo apt install -y python3-opencv python3-picamera2
+
+Step 1: Just for camera based self driving. 
+```
+sudo apt update  && sudo apt install -y python3-opencv python3-picamera2
 pip install RPi.GPIO numpy
+```
+
+Step 2: Lidar on top of camera based self driving 
+
+```
+sudo apt install python3-serial
+pip3 install rplidar-roboticia  # pure-python, zero-dep
 ```
 
 # Hardwares 
