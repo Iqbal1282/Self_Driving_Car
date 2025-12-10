@@ -24,3 +24,46 @@ pip3 install rplidar-roboticia  # pure-python, zero-dep
 7. Cables 
 
 
+# DC and Servo Design 
+
+          +-----------+
+          |  FRONT    |
+          |  servo    |
+          +-----------+
+          |           |
+   (L)---------O---------(R)   ← single driven axle
+          |    DC     |
+          |  motor    |
+          +-----------+
+          |   Pi      |
+          +-----------+
+
+Use the driver.py for the Car class 
+
+# DUAL DC Car design 
+
+                FRONT
+    ┌──────────────────────────────┐
+    │   Pi-Cam (tilt 20°)          │
+    │   ┌----------┐               │
+    │   │  LiDAR   │  (optional)   │   8 cm
+    │   │  (mast)  │               │
+    │   └----------┘               │
+    ├------------------------------┤
+    │  ┌-----┐        ┌-----┐      │
+    │  │  L  │        │  R  │      │   10 cm
+    │  │Wheel│        │Wheel│      │
+    │  └--┬--┘        └--┬--┘      │
+    │   Motor          Motor       │
+    │   (left)         (right)     │
+    ├------------------------------┤
+    │  L298N module                │
+    │   ENB│IN3│IN4  ENA│IN1│IN2    │   6 cm
+    ├------------------------------┤
+    │  7.4 V Battery               │   4 cm
+    └------------------------------┘
+       12 cm
+
+
+
+
