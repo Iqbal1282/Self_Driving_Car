@@ -71,5 +71,28 @@ Use the driver_diff.py for the Car class
        12 cm
 ```
 
+# Software Level Design (lidar, sonar, camera)
+
+Use autopilo_with_sonar.py for using these 3 sensors. 
+
+```
+┌-------------┐     ┌-------------┐     ┌--------------┐
+│  Camera CNN │     │   LiDAR     │     │  3×Sonar     │
+│ lane + sign │     │ 360° scan   │     │ <40 cm       │
+└-----┬-------┘     └-----┬-------┘     └-----┬--------┘
+      │                   │                   │
+      └---------┬---------┴---------┬---------┘
+                │   sensor fusion   │
+                ▼                   ▼
+         “front_clear” (m)    “side_gap” (m)
+                │                   │
+         ┌------┴-------------------┴------┐
+         │  state machine (20 Hz)         │
+         │  CRUISE / STOP_LIGHT /         │
+         │  STOP_OBSTACLE / CURB          │
+         └------┬------------------┬------┘
+                ▼                  ▼
+         car.drive(throttle)   car.steer(angle)
+```
 
 
