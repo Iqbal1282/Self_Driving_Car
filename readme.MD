@@ -1,5 +1,5 @@
 # Installation 
-On Rasberry Pi OS (64 bit)
+On Raspberry Pi OS (64 bit)
 
 Step 1: Just for camera based self driving. 
 ```
@@ -15,7 +15,7 @@ pip3 install rplidar-roboticia  # pure-python, zero-dep
 ```
 
 # Hardwares 
-1. Rasberry Pi 
+1. Raspberry Pi 
 2. Motor 
 3. Servo 
 4. Lidar 
