@@ -26,6 +26,8 @@ pip3 install rplidar-roboticia  # pure-python, zero-dep
 
 # DC and Servo Design 
 
+Use the driver.py for the Car class 
+
           +-----------+
           |  FRONT    |
           |  servo    |
@@ -38,9 +40,11 @@ pip3 install rplidar-roboticia  # pure-python, zero-dep
           |   Pi      |
           +-----------+
 
-Use the driver.py for the Car class 
+
 
 # DUAL DC Car design 
+
+Use the driver_diff.py for the Car class
 
                 FRONT
     ┌──────────────────────────────┐
