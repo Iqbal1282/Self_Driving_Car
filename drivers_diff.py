@@ -55,3 +55,43 @@ class Car:
     def stop(self):
         set_side(pwmL, IN1, IN2, 0)
         set_side(pwmR, IN3, IN4, 0)
+
+# ------------------------------------------------------------------
+#  Motor-driver quick-test  –  runs only when file is executed
+# ------------------------------------------------------------------
+if __name__ == "__main__":
+    import time, sys
+
+    car = Car()
+    print("=== L298N dual-motor test ===")
+    print("Commands:  f = forward, r = reverse, l = pivot left, p = pivot right")
+    print("           s = straight crawl,  q = quit")
+    try:
+        while True:
+            cmd = input(">>> ").strip().lower()
+            if cmd == "f":
+                print("forward 0.4 s …")
+                car.drive(0.4); time.sleep(0.4); car.stop()
+            elif cmd == "r":
+                print("reverse 0.4 s …")
+                car.drive(-0.4); time.sleep(0.4); car.stop()
+            elif cmd == "l":
+                print("pivot left 0.4 s …")
+                car.steer(-0.8); time.sleep(0.4); car.stop()
+            elif cmd == "p":
+                print("pivot right 0.4 s …")
+                car.steer(0.8); time.sleep(0.4); car.stop()
+            elif cmd == "s":
+                print("straight crawl 0.4 s …")
+                car.steer(0); car.drive(0.3); time.sleep(0.4); car.stop()
+            elif cmd == "q":
+                print("quit – wheels off")
+                break
+            else:
+                print("unknown key – try f/r/l/p/s/q")
+    except KeyboardInterrupt:
+        pass
+    finally:
+        car.stop()
+        IO.cleanup()
+        print("GPIO cleaned – test finished.")
